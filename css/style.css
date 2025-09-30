@@ -330,14 +330,13 @@ body {
 .modal__overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(10, 18, 1, 0.4);
   transition: opacity 0.3s ease;
 }
 
 .modal__content {
   position: relative;
-  color: #fff;
-  background: #210a01;
+  background: #fff;
   font-size: 20px;
   padding: 2rem;
   border-radius: 10px;
@@ -357,7 +356,8 @@ body {
   position: absolute;
   top: 5px;
   right: 10px;
-  font-size: 50px;
+  font-size: 30px;
+  color: #afbc9a;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -365,14 +365,22 @@ body {
 }
 
 .modal__title {
-  font-size: 30px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 520px;
+  font-size: 64px;
+  line-height: 72px;
   margin-bottom: 15px;
+  color: #436e10;
 }
 
 .modal__text {
   font-size: 18px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+  color: #0a1201;
   line-height: 1.3;
-  color: #a3a3a3;
 }
 
 .form-modal__content {
