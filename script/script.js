@@ -30,38 +30,100 @@ document.addEventListener("keydown", (e) => {
 
 const modalBtns = document.querySelectorAll(".button-modal");
 
-function createModal() {
-  const modal = document.createElement("div");
-  modal.classList.add("modal", "show");
+modalBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
 
-  modal.innerHTML = `
-    <div class="modal__overlay"></div>
-    <div class="modal__content">
-      <span class="modal-close">&times;</span>
-      <h2 class="modal__title">Book today, glow tomorrow</h2>
-      <div class="modal__text">
-        Fill in the short form below and we will call
-        you back and book you in at a time that is convenient for you
+    modal.innerHTML = `
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <span class="modal-close">&times;</span>
+        <h2 class="modal__title">Book today, glow tomorrow</h2>
+        <div class="modal__text">
+          Fill in the short form below and we will call
+          you back and book you in at a time that is convenient for you
+        </div>
+        <form class="modal__form form">
+          <div class="form__inputs">
+            <input type="text" class="form__input form-name" placeholder="Name"/>
+            <input type="text" class="form__input form-number" placeholder="Number" />
+          </div>
+          <div class="modal__checkbox checkbox-item">
+            <input type="checkbox" id="terms" />
+            <span>I agree to the privacy policy of the website and data processing</span>
+          </div>
+          <button type="button" class="button button-open-modal">Book a Treatment</button>
+        </form>
       </div>
-    </div>
-  `;
+    `;
 
-  document.body.appendChild(modal);
-  document.body.classList.add("modal-open");
+    document.body.appendChild(modal);
+    document.body.classList.add("modal-open");
 
-  const closeModalBtn = modal.querySelector(".modal-close");
-  const overlay = modal.querySelector(".modal__overlay");
+    setTimeout(() => modal.classList.add("show"), 10);
 
-  function closeModal() {
-    modal.classList.remove("show");
-    document.body.classList.remove("modal-open");
-    modal.remove();
-  }
+    const closeModalBtn = modal.querySelector(".modal-close");
+    const overlay = modal.querySelector(".modal__overlay");
+    const btnOpenModal = modal.querySelector(".button-open-modal");
 
-  closeModalBtn.addEventListener("click", closeModal);
-  overlay.addEventListener("click", closeModal);
-}
+    function closeModal(modalItem) {
+      modalItem.classList.remove("show");
+      document.body.classList.remove("modal-open");
 
-modalBtns.forEach((modalBtn) => {
-  modalBtn.addEventListener("click", createModal);
+      modalItem.addEventListener(
+        "transitionend",
+        () => {
+          modalItem.remove();
+        },
+        { once: true }
+      );
+    }
+
+    closeModalBtn.addEventListener("click", () => closeModal(modal));
+    overlay.addEventListener("click", () => closeModal(modal));
+
+    btnOpenModal.addEventListener("click", () => {
+      closeModal(modal);
+
+      const modalTwo = document.createElement("div");
+      modalTwo.classList.add("modal");
+
+      modalTwo.innerHTML = `
+        <div class="modal__overlay"></div>
+        <div class="modal__content modal__content-two">
+          <span class="modal-close">&times;</span>
+          <h2 class="modal__title modal-open__title">Thank you for your application</h2>
+          <div class="modal__text modal-open__text">We will contact you shortly</div>
+          <button class="button button-modal-close">Return to website</button>
+        </div>
+      `;
+
+      document.body.appendChild(modalTwo);
+      document.body.classList.add("modal-open");
+
+      setTimeout(() => modalTwo.classList.add("show"), 10);
+
+      const overlayTwo = modalTwo.querySelector(".modal__overlay");
+      const closeBtnTwo = modalTwo.querySelector(".modal-close");
+      const btnCloseModalTwo = modalTwo.querySelector(".button-modal-close");
+
+      function closeModalTwo() {
+        modalTwo.classList.remove("show");
+        document.body.classList.remove("modal-open");
+
+        modalTwo.addEventListener(
+          "transitionend",
+          () => {
+            modalTwo.remove();
+          },
+          { once: true }
+        );
+      }
+
+      overlayTwo.addEventListener("click", closeModalTwo);
+      closeBtnTwo.addEventListener("click", closeModalTwo);
+      btnCloseModalTwo.addEventListener("click", closeModalTwo);
+    });
+  });
 });

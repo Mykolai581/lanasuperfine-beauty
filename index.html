@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Lanasuperfine-Beauty</title>
   </head>
   <body>
+    <div class="top-text">
+      New client? £20 off your first Retinol Lift Facial" + "Free skin
+      consultation (10 min video)
+    </div>
+
     <div class="highlighted-block">
       <header class="header">
         <div class="header__container">
@@ -16,6 +26,7 @@
             </a>
           </div>
           <div class="header__menu menu">
+            <div class="menu__bg"></div>
             <nav class="menu__body">
               <ul class="menu__list">
                 <li class="menu__item">
@@ -32,17 +43,36 @@
                 </li>
               </ul>
             </nav>
+            <div class="header-border"></div>
+            <div class="header__contacts contacts">
+              <h2 class="contacts__title">Contacts</h2>
+              <div class="contacts__items">
+                <div class="contacts__item">
+                  <img src="" alt="Img" /> 4 St John's Parade, Sidcup, DA14 6ES
+                </div>
+                <div class="contacts__item">
+                  <img src="" alt="Img" /> +4407955843037
+                </div>
+              </div>
+              <button class="button button-modal">Book a Treatment</button>
+            </div>
           </div>
-          <button class="button button-modal">Book a Treatment</button>
+
+          <button class="header-button button button-modal">
+            Book a Treatment
+          </button>
+
+          <button class="menu-burger">
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </header>
-      <form class="modal__form form">
-        <input type="text" class="form__input form-name" />
-        <input type="text" class="form__input form-number" />
-      </form>
       <section class="main__sectionOne sectionOne">
         <div class="sectionOne__container"></div>
       </section>
     </div>
+
+    <script src="./script/script.js"></script>
   </body>
 </html>
