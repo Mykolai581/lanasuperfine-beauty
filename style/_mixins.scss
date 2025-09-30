@@ -1,0 +1,19 @@
+@mixin respond-to($break) {
+  @if $break == desktop {
+    @media (max-width: 960px) {
+      @content;
+    }
+  } @else if $break == tablet {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $break == mobile {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $break == small {
+    @media (max-width: 530px) {
+      @content;
+    }
+  }
+}

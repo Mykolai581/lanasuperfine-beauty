@@ -1,6 +1,9 @@
 @use "./resetStyle" as *;
 @use "./adaptiveStyle" as *;
 @use "./stylesForReusableElements" as *;
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./header" as *;
 
 /*==========================================*/
 //Top-Text
