@@ -1,7 +1,9 @@
 $color-primary: #284a00;
 $color-bg: #f2f7e9;
 $color-bg-light: #ffffff80;
-$color-burger-active: #e7f0d7;
+$color-white: #fff;
+// $color-burger-active: #e7f0d7;
+$color-burger-active: #d0e2b4;
 $color-burger-span: #65893a;
 $color-dark: #0a1201;
 $color-hover: #d0e2b4;
@@ -14,7 +16,7 @@ $color-burger-bg: #ebf0e5;
 $color-burger-line: #284a00;
 $color-error: #ff0000;
 
-$font-base: "Arial, sans-serif";
+$font-base: "Poppins";
 $font-verySmall: 12px;
 $font-small: 13px;
 $font-medium: 16px;
@@ -35,5 +37,7 @@ $breakpoints: (
   "tablet": 768px,
   "mobile": 600px,
   "small": 530px,
-  "verySmall": 466px,
+  "verySmall": 440px,
+  "veryVerySmall": 420px,
+  "veryVerySmallMobile": 350px,
 );
